@@ -6,12 +6,12 @@ html {
   }
   
   /* ------ Typography -------*/
-  body{font-family: 'Open Sans', sans-serif;}
+  body{font-family: 'Quicksand', sans-serif;}
   
   /* ------ Fluid Images -------*/
   
   img {
-    max-width:100%;
+    max-width:95%;
     height:auto;
   }
   
@@ -24,17 +24,17 @@ html {
   
   /* ------ Global Styles -------*/
   body{
-    background:#efefef;
+    background:#7cd2fa;
     color:#222222;
     line-height:1.6;
   } 
   a:link, a:visited{
-    color:#222;
+    color:rgb(45, 71, 59);
   }
   
   .container{
     margin:0 auto;
-    background:rgba(0,0,0,.15);
+    background:rgb(0, 0, 0);
   }
   
   nav.primary {
@@ -47,14 +47,14 @@ html {
   
   nav a:link,
   nav a:visited {
-    border: 1px solid #000;
+    border: 1px solid #000000a6;
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
-    color: #222222;
+    color: #000000;
     text-transform: uppercase;
     font-size: 0.75em;
-    background: rgba(0, 0, 0, 0.65);
+    background: #2e042ca6;
     transition: background-color 0.5s ease;
     color: #fff;
   }
@@ -103,14 +103,14 @@ html {
     font-weight: 800;
     grid-column: 1;
     padding: 10px 0;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid rgb(0, 0, 0);
   }
   
   dd{
     margin: 0;
     grid-column: 2;
     padding: 10px 0;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid rgb(0, 0, 0);
   }
   
   .related-links{
@@ -129,10 +129,10 @@ html {
     padding:8px 8px;
     text-align:center;
     text-decoration:none;
-    color:#222222;
+    color:#2e042ca6;
     text-transform:uppercase;
     font-size:.75em;
-    background:rgba(0,0,0,.65);
+    background:#2e042ca6;
     transition: background-color 0.5s ease;
     color:#fff;
   }
@@ -153,7 +153,7 @@ html {
   }
   
   .job, .certificate{
-    border-bottom:1px solid #999;
+    border-bottom:1px solid rgb(0, 0, 0);
     padding-bottom:20px;
   }
   
@@ -174,8 +174,77 @@ html {
   text-align:center;
   padding:20px 0;
   }
+
+  .title{
+    grid-area:title;
+  }
   
+  #about{
+    grid-area: about;
+  }
+  #skills{
+    grid-area: skills;
   
+  }
+  #experience{
+    grid-area: experience;
+  }
+  #education{
+    grid-area: education;
+  }
+
+  main{
+    display:grid;
+    grid-gap:1em;
+    grid-template-areas: 
+    "title"
+    "about"
+    "education"
+    "experience"
+    "skills";
+  }
+  
+
+  /* media queries */
+
+  @media screen and (min-width:768px){
+
+.container{
+  max-width: 900px;
+}
+
+
+main{
+  grid-template-columns: 1fr, 1fr, 1fr;
+  grid-template-areas: 
+  "title title title"
+  "about about about"
+  "education education skills"
+  "experience experience experience"
+  
+  ;
+}
+
+#about{
+  display:grid;
+  grid-gap:2em;
+  grid-template-columns: 300px 1fr auto;
+  grid-template-areas:
+    "bio bio details"
+    "related related related";
+}
+
+.bio{
+grid-area:bio;
+}
+.details{
+grid-area:details;
+}
+.related-links{
+grid-area:related;
+}
+
+  }
   
   
   /* ------ Helper Classes -------*/
